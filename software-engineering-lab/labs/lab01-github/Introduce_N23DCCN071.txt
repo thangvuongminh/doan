@@ -1,0 +1,17 @@
+Hello, my name is Hồ Ngọc Hoàng Anh.  
+I am currently a student at Post and Telecommunications Institute of Technology.  
+
+🔹 Interests:
+- Web development  
+
+🔹 Skills:
+- Programming languages: C++, HTML, CSS, Python, SQL  
+- Tools: Git, Visual Studio Code, Jira, MySQL  
+- Development process: Waterfall  
+
+🔹 Goals:
+- To become a software engineer   
+
+Thank you for reading my introduction.
+
+GitHub:https://github.com/Titapie

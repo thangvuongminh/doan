@@ -1,0 +1,114 @@
+@startuml
+class User {
+  - userId: String
+  - name: String
+  - email: String
+  - role: String
+  + loginWithZalo(token): AuthResult
+  + updateProfile(data)
+}
+class Student {
+  - studentId: String
+  - classId: String
+  + viewExamList()
+  + startExam(examId)
+  + submitAnswer(attemptId, questionId, answer)
+  + submitExam(attemptId)
+  + viewResult(attemptId)
+}
+class Teacher {
+  - teacherId: String
+  - department: String
+  + createExam(examDTO)
+  + editExam(examId, examDTO)
+  + addQuestion(questionDTO)
+  + importFromExcel(file)
+  + gradeEssay(attemptId, questionId, score, feedback)
+  + viewStatistics(examId)
+}
+class Exam {
+  - examId: String
+  - title: String
+  - subject: String
+  - type: String
+  - durationMinutes: int
+  - startAt: DateTime
+  - endAt: DateTime
+  - status: String
+  + addQuestion(q)
+  + validate(): ValidationResult
+}
+
+class Question {
+  - questionId: String
+  - examId: String
+  - content: String
+  - mediaUrl: String
+  - type: String
+  - weight: float
+  - difficulty: String
+  + getChoices()
+}
+class Choice {
+  - choiceId: String
+  - questionId: String
+  - text: String
+  - isCorrect: boolean
+}
+class Attempt {
+  - attemptId: String
+  - examId: String
+  - studentId: String
+  - startedAt: DateTime
+  - lastSavedAt: DateTime
+  - finishedAt: DateTime
+  - status: String
+  - score: float
+  + saveTempAnswer(questionId, answer)
+  + finalizeAndScore()
+}
+class Answer {
+  - answerId: String
+  - attemptId: String
+  - questionId: String
+  - response: String
+  - updatedAt: DateTime
+  - isAutoMarked: boolean
+  - autoMarkScore: float
+  - manualScore: float
+  - feedback: String
+}
+class Result {
+  - resultId: String
+  - attemptId: String
+  - totalScore: float
+  - rank: int
+  - generatedAt: DateTime
+}
+class QuestionBank {
+  - bankId: String
+  - ownerId: String
+  - name: String
+  + search(criteria)
+  + addQuestion(q)
+}
+class Notification {
+  - notificationId: String
+  - userId: String
+  - type: String
+  - content: String
+  - status: String
+  - sentAt: DateTime
+  + send()
+}
+User <|-- Student
+User <|-- Teacher
+Teacher "1" -- "0..*" Exam : owns >
+Exam "1" -- "0..*" Question : contains >
+Question "1" -- "0..*" Choice : has >
+Student "1" -- "0..*" Attempt : makes >
+Attempt "1" -- "0..*" Answer : contains >
+Attempt "1" -- "0..1" Result : yields >
+QuestionBank "1" -- "0..*" Question : stores >
+Notification "0..*" -- "1" User : for >
+@enduml

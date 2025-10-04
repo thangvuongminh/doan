@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - EduOnline (Cam)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(90deg, #fff7ed, #fed7aa); /* cam nhạt */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 400px;
+            max-width: 90vw;
+        }
+
+        .login-header {
+            background: #f97316; /* cam */
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .login-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .login-form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+
+        .form-group.error input {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: auto;
+        }
+
+        .remember-me label {
+            margin-bottom: 0;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #f97316; /* cam */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .forgot-password a {
+            color: #ea580c; /* cam đậm */
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 1rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>📚 EduOnline</h1>
+            <p>Học tập trực tuyến</p>
+        </div>
+        
+        <form class="login-form" id="loginForm2">
+            <div class="success-message" id="successMessage2">
+                Đăng nhập thành công! Đang chuyển hướng...
+            </div>
+            
+            <div class="form-group" id="usernameGroup2">
+                <label for="username2">Tên đăng nhập</label>
+                <input type="text" id="username2" name="username2" placeholder="Nhập tên đăng nhập">
+                <div class="error-message" id="usernameError2">Vui lòng nhập tên đăng nhập</div>
+            </div>
+            
+            <div class="form-group" id="passwordGroup2">
+                <label for="password2">Mật khẩu</label>
+                <input type="password" id="password2" name="password2" placeholder="Nhập mật khẩu">
+                <div class="error-message" id="passwordError2">Vui lòng nhập mật khẩu</div>
+            </div>
+            
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe2" name="rememberMe2">
+                <label for="rememberMe2">Ghi nhớ đăng nhập</label>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary" id="loginBtn2">
+                    Đăng nhập
+                </button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn2">
+                    Hủy bỏ
+                </button>
+            </div>
+            
+            <div class="forgot-password">
+                <a href="#" onclick="alert('Tính năng quên mật khẩu sẽ được phát triển!')">Quên mật khẩu?</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Elements
+        const loginForm2 = document.getElementById('loginForm2');
+        const usernameInput2 = document.getElementById('username2');
+        const passwordInput2 = document.getElementById('password2');
+        const rememberMeCheckbox2 = document.getElementById('rememberMe2');
+        const loginBtn2 = document.getElementById('loginBtn2');
+        const cancelBtn2 = document.getElementById('cancelBtn2');
+        const successMessage2 = document.getElementById('successMessage2');
+
+        const demoAccounts2 = {
+            'admin': 'admin123',
+            'teacher': 'teacher123',
+            'student': 'student123'
+        };
+
+        window.addEventListener('load', function() {
+            const rememberedUsername2 = localStorage.getItem('rememberedUsername2');
+            if (rememberedUsername2) {
+                usernameInput2.value = rememberedUsername2;
+                rememberMeCheckbox2.checked = true;
+            }
+        });
+
+        function validateForm2() {
+            let isValid = true;
+            clearErrors2();
+
+            const username = usernameInput2.value.trim();
+            if (!username) {
+                showError2('usernameGroup2', 'usernameError2', 'Vui lòng nhập tên đăng nhập');
+                isValid = false;
+            } else if (username.length < 3) {
+                showError2('usernameGroup2', 'usernameError2', 'Tên đăng nhập phải có ít nhất 3 ký tự');
+                isValid = false;
+            }
+
+            const password = passwordInput2.value;
+            if (!password) {
+                showError2('passwordGroup2', 'passwordError2', 'Vui lòng nhập mật khẩu');
+                isValid = false;
+            } else if (password.length < 6) {
+                showError2('passwordGroup2', 'passwordError2', 'Mật khẩu phải có ít nhất 6 ký tự');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError2(groupId, errorId, message) {
+            const group = document.getElementById(groupId);
+            const error = document.getElementById(errorId);
+            group.classList.add('error');
+            error.textContent = message;
+        }
+
+        function clearErrors2() {
+            const errorGroups = document.querySelectorAll('.form-group.error');
+            errorGroups.forEach(group => group.classList.remove('error'));
+        }
+
+        function checkLogin2(username, password) {
+            return demoAccounts2[username] === password;
+        }
+
+        loginForm2.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm2()) {
+                const username = usernameInput2.value.trim();
+                const password = passwordInput2.value;
+
+                loginBtn2.textContent = 'Đang đăng nhập...';
+                loginBtn2.disabled = true;
+
+                setTimeout(() => {
+                    if (checkLogin2(username, password)) {
+                        successMessage2.style.display = 'block';
+                        if (rememberMeCheckbox2.checked) {
+                            localStorage.setItem('rememberedUsername2', username);
+                        } else {
+                            localStorage.removeItem('rememberedUsername2');
+                        }
+                        setTimeout(() => {
+                            alert(`Xin chào ${username}! Đăng nhập thành công (Form cam).`);
+                        }, 1500);
+                    } else {
+                        showError2('passwordGroup2', 'passwordError2', 'Tên đăng nhập hoặc mật khẩu không đúng');
+                        loginBtn2.textContent = 'Đăng nhập';
+                        loginBtn2.disabled = false;
+                    }
+                }, 1000);
+            }
+        });
+
+        cancelBtn2.addEventListener('click', function() {
+            if (confirm('Bạn có chắc chắn muốn hủy bỏ?')) {
+                loginForm2.reset();
+                clearErrors2();
+                successMessage2.style.display = 'none';
+                alert('Đã hủy bỏ đăng nhập (Form cam)');
+            }
+        });
+
+        usernameInput2.addEventListener('input', function() {
+            if (this.value.trim()) {
+                document.getElementById('usernameGroup2').classList.remove('error');
+            }
+        });
+
+        passwordInput2.addEventListener('input', function() {
+            if (this.value) {
+                document.getElementById('passwordGroup2').classList.remove('error');
+            }
+        });
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && (e.target === usernameInput2 || e.target === passwordInput2)) {
+                loginForm2.dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>

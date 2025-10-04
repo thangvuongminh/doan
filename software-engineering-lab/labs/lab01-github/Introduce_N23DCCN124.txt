@@ -1,0 +1,20 @@
+
+Hello, my name is Vương Minh Thắng.  
+I am currently a Software Engineering student at Post and Telecommunications Institute of Technology.  
+
+🔹 Interests:
+- Web development  
+
+🔹 Skills:
+- Programming languages: C++, HTML, CSS, JavaScript, SQL, Python  
+- Tools: Git, Visual Studio Code, Jira, MySQL,   
+- Development process: Agile - Scrum, Waterfall  
+
+🔹 Goals:
+- To become a professional software engineer  
+- To contribute to real-world software projects  
+- To keep learning about new technologies and trends in the IT industry  
+
+Thank you for reading my introduction.
+
+GitHub: https://github.com/thangvuongminh

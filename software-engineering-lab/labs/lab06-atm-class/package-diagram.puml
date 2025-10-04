@@ -1,0 +1,43 @@
+@startuml
+package "UI Layer - Zalo Mini App" {
+    class "Student Module" as StudentUI
+    class "Teacher Module" as TeacherUI
+    class "Auth Module (OAuth)" as AuthUI
+}
+package "API Layer - NodeJS/Express" {
+    class "Auth Service" as AuthAPI
+    class "Exam Service" as ExamAPI
+    class "Question Service" as QuestionAPI
+    class "Attempt Service" as AttemptAPI
+    class "Result Service" as ResultAPI
+    class "Statistics Service" as StatsAPI
+}
+package "Data Layer - Firebase" {
+    class "Users Collection" as UsersDB
+    class "Exams Collection" as ExamsDB
+    class "Questions Collection" as QuestionsDB
+    class "Attempts Collection" as AttemptsDB
+    class "Results Collection" as ResultsDB
+    class "Leaderboard Collection" as LeaderboardDB
+}
+package "Notification Layer" {
+    class "Reminder Service" as Reminder
+    class "Result Notification" as ResultNotif
+}
+' Mapping / Relations
+StudentUI --> ExamAPI
+StudentUI --> AttemptAPI
+StudentUI --> ResultAPI
+TeacherUI --> ExamAPI
+TeacherUI --> QuestionAPI
+TeacherUI --> StatsAPI
+AuthUI --> AuthAPI
+ExamAPI --> ExamsDB
+QuestionAPI --> QuestionsDB
+AttemptAPI --> AttemptsDB
+ResultAPI --> ResultsDB
+StatsAPI --> LeaderboardDB
+AuthAPI --> UsersDB
+ResultAPI --> ResultNotif
+ExamAPI --> Reminder
+@enduml
