@@ -104,7 +104,7 @@
 * Unit test (kiểm tra các module)
  ![Kiểm tra module](https://github.com/thangvuongminh/doan/blob/main/software-engineering-lab/labs/lab08/UnitTest.png)
 * Integration test (tương tác giữa backend – database – frontend)
-  ![Kiểm tra module](https://github.com/thangvuongminh/doan/blob/main/software-engineering-lab/labs/lab08/%E1%BA%A2nh%20pass%26fail.png)
+  ![Kiểm tra module](https://github.com/thangvuongminh/doan/blob/main/software-engineering-lab/labs/lab08/pass%26fail.jpg)
 ---
 
 ## 5. Kết luận & Định hướng mở rộng
@@ -119,5 +119,6 @@
   * Phân tích dữ liệu học tập để gợi ý cá nhân hóa
 
 ---
+
 
 
